@@ -1,0 +1,32 @@
+
+atom-pane-container {
+  atom-pane {
+    position: relative;
+    padding-top: @ui-padding-pane;
+    padding-left: @ui-padding-pane;
+
+    .item-views {
+      border: 1px solid @pane-item-border-color;
+      border-top: none;
+
+      // prevent atom-text-editor from leaking ouside
+      // might improve performance
+      overflow: hidden;
+    }
+  }
+
+  & > atom-pane:first-child,
+  & > atom-pane-axis:first-child > atom-pane:first-child {
+    padding-left: 0;
+  }
+
+  // make resize-handles fill the space
+  atom-pane-axis.horizontal > atom-pane-resize-handle:before {
+    width: @ui-padding-pane;
+    left: -@ui-padding-pane;
+  }
+  atom-pane-axis.vertical > atom-pane-resize-handle:before {
+    height: @ui-padding-pane;
+    top: 0;
+  }
+}
